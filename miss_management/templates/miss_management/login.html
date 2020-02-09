@@ -1,0 +1,38 @@
+{%load static %}
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Welcome to Miss. HR Verificient </title>
+      <link rel="stylesheet" type="text/css" href="{%static 'css/login_style.css' %} " >
+    </head>
+    <body>
+
+		<!--<script src="{%static 'EmployeeData/validateEmpRegstForm.js' %}"></script>-->
+		<div class="topnav">
+        <a class="active" name="user" href="{%url 'Login' %}"> Log In : {{request.user.username }} </a>
+        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+
+    </div>
+		<div class="header">
+	    	<h2>Welcome to Miss. HR Verificient</h2>
+	  	</div>
+		<form name="myForm" onsubmit="" method="post" action= ''>
+			{% csrf_token %}
+		<font color="red"><span>{{error}}</span></font><br>
+		<div class="input-group">
+			<label><i>Username:<font color="red">*<span id="username"></span></font></i></label>
+			<input type="text" name="username" required >
+		</div>
+	 	<div class="input-group">
+			<label><i>Password:<font color="red">*<span id="password"></span></font></i></label>
+			<input type="password" name="password" required >
+		</div>
+		<div class="input-group">
+			<button type="submit" name="login" class="btn"><b>Submit</b></button>
+		</div>
+
+		</form>
+
+    </body>
+
+  </html>

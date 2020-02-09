@@ -1,0 +1,66 @@
+{% load static from staticfiles %}
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goal Setting Form</title>
+    <link rel="stylesheet" href="{% static 'css/stud_data_style.css' %}">
+</head>
+<body style="color:w" >
+
+
+<div class="container" >
+    <div class="topnav">
+        <a class="active" href=""  name="user"> Create a Goal </a>
+         <a href="{%url 'DisplayEmpData' %}"  name="user"> Show Goals </a>
+        <a  name="user"> Log In : {{request.user.username}} </a>
+        <a  name="user"> Type : {{request.user.first_name}} </a>
+        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+
+</div>
+      <form  name="myForm" onsubmit="return validateForm()" method="post" action= "{% url 'save_emp_goal_Data' %}" > {% csrf_token %}
+          {% csrf_token %}
+		<font color="red"><span>{{error}}</span></font><br>
+          <div class="row">
+      <div class="col-25">
+        <label for="emp_id">Setting goals for Employee ID</label>
+      </div>
+
+      <div class="col-75">
+        <input type="text" id="emp_id" name="emp_id" placeholder="write employee id for whom you are setting goals here.."  >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="goal_title">Goal title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="goal_title" name="goal_title" placeholder="write goal title here.."  >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="due_date">Due date</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="due_date" name="due_date" placeholder="YYYY-MM-DD should be in this formate" >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="goal_description">Goal description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="goal_description" name="goal_description" placeholder="write goal description here.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Add">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
