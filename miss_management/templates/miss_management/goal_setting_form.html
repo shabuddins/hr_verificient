@@ -13,24 +13,32 @@
 <div class="container" >
     <div class="topnav">
         <a class="active" href=""  name="user"> Create a Goal </a>
-         <a href="{%url 'DisplayEmpData' %}"  name="user"> Show Goals </a>
+        <a href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
+         <a href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
         <a  name="user"> Log In : {{request.user.username}} </a>
         <a  name="user"> Type : {{request.user.first_name}} </a>
         <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
 
 </div>
-      <form  name="myForm" onsubmit="return validateForm()" method="post" action= "{% url 'save_emp_goal_Data' %}" > {% csrf_token %}
+      <form  name="myForm" onsubmit="return validateForm()" method="post" action= "{% url 'save_emp_goal_Data' %}" >
           {% csrf_token %}
 		<font color="red"><span>{{error}}</span></font><br>
           <div class="row">
       <div class="col-25">
-        <label for="emp_id">Setting goals for Employee ID</label>
+        <label for="goal_id">Goal ID</label>
       </div>
-
       <div class="col-75">
-        <input type="text" id="emp_id" name="emp_id" placeholder="write employee id for whom you are setting goals here.."  >
+        <input type="text" id="goal_id" name="goal_id" placeholder="Enter unique goal id.."  >
       </div>
-    </div>
+          </div>
+          <div class="row">
+              <div class="col-25">
+                  <label for="emp_id">Employee Email-ID</label>
+              </div>
+              <div class="col-75">
+                  <input type="text" id="emp_id" name="emp_id" placeholder="write employee id for whom you are setting goals here.."  >
+              </div>
+          </div>
     <div class="row">
       <div class="col-25">
         <label for="goal_title">Goal title</label>

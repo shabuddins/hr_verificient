@@ -1,0 +1,45 @@
+
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Information</title>
+
+   <link rel="stylesheet" type="text/css" href="{%static 'css/gray_bg.css' %} " >
+</head>
+
+  <body style="color:white">
+    <div class="topnav">
+        <a  href="{%url 'setting_form' %}"  name="user"> Create a Goal </a>
+        <a class="active" href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
+         <a  href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
+        <a  name="user"> Log In : {{request.user.username }} </a>
+        <a  name="user"> Type : {{request.user.first_name}} </a>
+        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+    </div>
+
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+
+			<p>Are you sure you want to delete ?</p>
+
+			<form action="{% url 'delete_order' item.id item.goal_id %}" method="POST">
+				
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'DisplayEmpData' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm">
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+  </body>

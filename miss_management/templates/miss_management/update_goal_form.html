@@ -1,0 +1,41 @@
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Information</title>
+
+   <link rel="stylesheet" type="text/css" href="{%static 'css/gray_bg.css' %} " >
+</head>
+
+  <body style="color:white">
+    <div class="topnav">
+        <a  href="{%url 'setting_form' %}"  name="user"> Create a Goal </a>
+         <a class="active" href="{%url 'DisplayEmpData' %}"  name="user"> Show Goals </a>
+        <a  name="user"> Log In : {{request.user.username }} </a>
+        <a  name="user"> Type : {{request.user.first_name}} </a>
+        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+    </div>
+
+    <br>
+
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{form}}
+				
+				<input type="submit" name="Submit">
+			</form>
+
+		</div>
+	</div>
+</div>
+  </body>
+
+{% endblock %}

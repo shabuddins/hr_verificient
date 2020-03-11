@@ -12,8 +12,8 @@
   <body>
     <div class="topnav">
         <a  href="{%url 'setting_form' %}"  name="user"> Create a Goal </a>
-        <a href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
-         <a class="active" href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
+        <a class="active" href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
+         <a  href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
         <a  name="user"> Log In : {{request.user.username }} </a>
         <a  name="user"> Type : {{request.user.first_name}} </a>
         <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
@@ -28,7 +28,8 @@
       <th>Goal Title</th>
       <th>Goal Description</th>
       <th>Due date</th>
-
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
     {% for stored_empData in emp_goal_setting_data %}
     <tr>
@@ -38,6 +39,8 @@
          <td>{{ stored_empData.goal_title}}</td>
          <td>{{ stored_empData.goal_description}} </td>
          <td>{{ stored_empData.due_date}}</td>
+         <td><a class="btn btn-secondary" href="{% url 'update_order' stored_empData.id %}">Update</a></td>
+         <td><a class="btn btn-danger" href="{% url 'delete_order' stored_empData.id stored_empData.goal_id %}">Delete</a></td>
     </tr>
     {% endfor %}
 
