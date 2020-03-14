@@ -6,20 +6,12 @@
 <head>
   <title>Employee Information</title>
 
-   <link rel="stylesheet" type="text/css" href="{%static 'css/gray_bg.css' %} " >
+    {% include "bootstrap.html" %}
+
 </head>
 
   <body style="color:white">
-    <div class="topnav">
-        <a  href=""  name="user"> Create a Goal </a>
-        <a href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
-        <a href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
-        <a href="{%url 'team_setting_form' %}"  class="active" name="user"> Create Team Goal</a>
-        <a href="{%url 'DisplayTeamData' request.user.username %}"  name="user"> Your Team </a>
-        <a name="user"> Log In : {{request.user.username}} </a>
-        <a name="user"> Type : {{request.user.first_name}} </a>
-        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
-    </div>
+    {% include "navbar_emp.html" %}
 
     <br>
 
