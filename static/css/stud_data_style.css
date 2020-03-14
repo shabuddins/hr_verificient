@@ -1,6 +1,6 @@
 body{
     background-color: #0f121f;
-    background-image: url(/static/images/students.jpg);
+    background-image: url(/static/images/create_goal_bg.jpeg);
 }
 
 /* Style inputs, select elements and textareas */
@@ -33,7 +33,7 @@ input[type=submit] {
 /* Style the container */
 .container {
   border-radius: 5px;
-  background-image: url(/static/images/students.jpg);
+  background-image: url(/static/images/create_goal_bg.jpeg);
   padding: 20px;
   color: black;
   font-weight: bold;

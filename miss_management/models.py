@@ -20,18 +20,13 @@ class Emp_goal_data_man(models.Model):  # database name is Emp_goal_data_man,for
     goal_title = models.CharField(max_length=100)
     goal_description = models.CharField(max_length=100)
     due_date = models.CharField(max_length=25, default="NA")
-
-
-class Emp_goal_feedback(models.Model):
-    email = models.EmailField(max_length=50)
-    goal_id = models.CharField(max_length=100)
     employee_comment = models.CharField(max_length=100, default="NA")
     employee_ratings = models.IntegerField(default=00)
-
-
-class Manager_goal_feedback(models.Model):
-    email = models.EmailField(max_length=50)
-    goal_id = models.CharField(max_length=100)
     manager_comment = models.CharField(max_length=100, default="NA")
     manager_ratings = models.IntegerField(default=00)
+
+
+class Managers_associations(models.Model):
+    email = models.EmailField(max_length=50)
+    dept = models.CharField(max_length=50)
 
