@@ -3,112 +3,110 @@
 <html>
 <head>
    <title>Welcome to Miss. HR Verificient</title>
-   <!--Made with love by Mutiullah Samim -->
-   <!--Bootsrap 4 CDN-->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Fontawesome CDN-->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-   <!--Custom styles-->
-   <link rel="stylesheet" type="text/css" href="{%static 'css/login_style.css' %} " >
-    <style>
-        html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
-.container{
- margin-top: 70px;
-height: 100%;
-align-content: center;
-}
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
-}
-.social_icon span{
-font-size: 30px;
-margin-left: 10px;
-color: #FFC312;
-}
-.social_icon span:hover{
-color: white;
-cursor: pointer;
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+  body {
+    font-family: "Lato", sans-serif;
 }
 
-.card-header h3{
-color: white;
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
 }
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
+
+
+.main {
+    padding: 0px 10px;
 }
-.login_btn{
-color: black;
-align-content: center
-background-color: #FFC312;
-width: 100px;
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
 }
-.login_btn:hover{
-color: black;
-background-color: white;
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
 }
-h3{
-margin : 30px;
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
 }
-.links{
-color: white;
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
 }
-.links a{
-margin-left: 4px;
+
+.login-main-text h2{
+    font-weight: 300;
 }
-    </style>
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+</style>
 </head>
 <body>
-<!--<script src="{%static 'EmployeeData/validateEmpRegstForm.js' %}"></script>-->
-<div class="card-header">
-      <div class="topnav" >
-        <a class="active" name="user" href="{%url 'Login' %}"> Log In : {{request.user.username }} </a>
-            <a href="{%url 'logout' %}"><font color="red">Log out</font></a></div>
-<h3>Welcome to Performance Management Evaluation</h3>
-<div class="container">
-   <div class="d-flex justify-content-center h-100">
-      <div class="card">
-         <div class="card-header">
-            <h3>Login</h3>
-         </div>
-         <div class="card-body">
-            <form name="myForm" onsubmit="" method="post" action= ''>
-                    {% csrf_token %}
-               <div class="input-group form-group">
-                  <div class="input-group-prepend">
-                     <span class="input-group-text"><i class="fas fa-user"></i></span>
-                  </div>
-                  <input type="text" class="form-control" name="username" id="username" placeholder="username">
-               </div>
-               <div class="input-group form-group">
-                  <div class="input-group-prepend">
-                     <span class="input-group-text"><i class="fas fa-key"></i></span>
-                  </div>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="password">
-               </div>
-               <div class="form-group">
-				   <center> <input type="submit" value="Login"  name="login"  class="btn btn-info btn-md"></center>
-               </div>
-            </form>
+<div class="sidenav">
+         <div class="login-main-text">
+          <p style="color: #0066ff;"><span style="font-size: 24px;">Performance Evaluation</span><span style="font-size: 28;"> System</span></p>
          </div>
       </div>
-   </div>
-</div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>{% csrf_token %}
+                  <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                  </div>
+                  <input type="submit" value="Login"  name="login" class="btn btn-primary btn-lg" style="padding: 4px 40px;">  
+               </form>
+            </div>
+         </div>
+      </div>
+
 </body>
 </html>

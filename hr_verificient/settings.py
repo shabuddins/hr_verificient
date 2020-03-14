@@ -52,10 +52,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hr_verificient.urls'
 
+TEMP_DIRS = [
+    os.path.join(BASE_DIR, 'miss_management/templates/miss_management'),
+    os.path.join(BASE_DIR, 'miss_management/templates'),
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'miss_management/templates')],
+        'DIRS': TEMP_DIRS,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

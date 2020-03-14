@@ -1,0 +1,29 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>{% csrf_token %}
+                  <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                  </div>
+                  <button type="submit" class="btn btn-black">Login</button>
+                  <input type="submit" value="Login"  name="login" class="btn btn-primary btn-lg" style="padding: 4px 40px;">  
+               </form>
+            </div>
+         </div>
+      </div>
