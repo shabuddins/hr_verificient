@@ -6,40 +6,36 @@
 <html>
 <head>
   <title>Employee Information</title>
-
-   <link rel="stylesheet" type="text/css" href="{%static 'css/gray_bg.css' %} " >
+ {% include "bootstrap.html" %}
 </head>
 
-  <body style="color:white">
-    <div class="topnav">
-        <a  href="{%url 'setting_form' %}"  name="user"> Create a Goal </a>
-        <a class="active" href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
-         <a  href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
-        <a  name="user"> Log In : {{request.user.username }} </a>
-        <a  name="user"> Type : {{request.user.first_name}} </a>
-        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
-    </div>
-
+  <body>
+  {% include "navbar_emp.html" %}
 
 <br>
-<div class="row">
-	<div class="col-md-6">
-		<div class="card card-body">
 
 
-			<p>Are you sure you want to delete ?</p>
+    <div class="row">
+      <div class="col-sm-1 col-md-1 col-lg-1">
+        
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10" align="center">
+      <div>Are you sure you want to delete ? we know its not illegal but you should really think about what you are doing !</div>
 
-			<form action="{% url 'delete_order' item.id item.goal_id %}" method="POST">
-				
-				{% csrf_token %}
-				<a class="btn btn-warning" href="{% url 'DisplayEmpData' %}">Cancel</a>
+      <form action="{% url 'delete_order' item.id item.goal_id %}" method="POST">
+        
+        {% csrf_token %}
+        <hr>
+        <a class="btn btn-outline-warning" href="{% url 'DisplayEmpData' %}">Cancel</a>
 
-				<input class="btn btn-danger" type="submit" name="Confirm">
-			</form>
-		</div>
-	</div>
-</div>
-
+        <input class="btn btn-danger" type="submit" name="Confirm">
+      </form>
+        
+      </div>
+      <div class="col-sm-1 col-md-1 col-lg-1">
+        
+      </div>
+    </div>
+</body>
+</html>
 {% endblock %}
-
-  </body>

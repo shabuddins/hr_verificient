@@ -1,4 +1,3 @@
-{% load static from staticfiles %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,23 +5,17 @@
 <head>
   <title>Employee Information</title>
 
-   <link rel="stylesheet" type="text/css" href="{%static 'css/stud_data_style.css' %} " >
+   {% include "bootstrap.html" %}
 </head>
 
   <body>
-    <div class="topnav">
-        <a href="{%url 'setting_form' %}"  name="user"> Create a Goal </a>
-        <a href="{%url 'EditDisplayEmpData' %}"  name="user"> Edit Goals </a>
-        <a href="{%url 'search_emp_goal_Data' %}"  name="user"> Show Goals </a>
-        <a href="{%url 'team_setting_form' %}"  name="user"> Create Team Goal</a>
-        <a href="{%url 'DisplayTeamData' request.user.username %}"  class="active" name="user"> Your Team </a>
-        <a  name="user"> Log In : {{request.user.username}} </a>
-        <a  name="user"> Type : {{request.user.first_name}} </a>
-        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
-    </div>
+  {% include "navbar_emp.html" %}
 
     <br>
-    <table align="center" bgcolor="grey"><font color="black"><center> <h1>Employee  Details</h1></center></font><br>
+    <table class="table table-striped">
+      <font color="black">
+        <center> <h1>Employee  Details</h1></center>
+      </font><br>
     <tr>
        <th>Sr. No. </th>
         <th>Name </th>

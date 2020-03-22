@@ -1,4 +1,3 @@
-{% load static from staticfiles %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,7 +5,7 @@
 <head>
   <title>Employee Information</title>
 
-   <link rel="stylesheet" type="text/css" href="{%static 'css/stud_data_style.css' %} " >
+    {% include "bootstrap.html" %}
 </head>
 
   <body>

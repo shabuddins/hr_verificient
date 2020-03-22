@@ -6,35 +6,34 @@
 <head>
   <title>Employee Information</title>
 
-   <link rel="stylesheet" type="text/css" href="{%static 'css/gray_bg.css' %} " >
+    {% include "bootstrap.html" %}
 </head>
 
   <body style="color:white">
-    <div class="topnav">
-        <a  href="{% url 'update_order' user.username %}"  class="active" name="user"> Your Goals </a>
-        <a  name="user"> Log In : {{request.user.username }} </a>
-        <a  name="user"> Type : {{request.user.first_name}} </a>
-        <a href="{%url 'logout' %}"><font color="red">Log out</font></a>
+    {% include "navbar_emp.html" %}
+
+    <hr>
+
+
+
+    <div class="row">
+      <div class="col-sm-1 col-md-1 col-lg-1">
+        
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+      <form action="" class="form-control" method="POST">
+        {% csrf_token %}
+        {{form}}
+        
+        <input type="submit" name="Submit">
+      </form>
+        
+      </div>
+      <div class="col-sm-1 col-md-1 col-lg-1">
+        
+      </div>
     </div>
 
-    <br>
-
-
-
-<div class="row">
-	<div class="col-md-6">
-		<div class="card card-body">
-
-			<form action="" method="POST">
-				{% csrf_token %}
-				{{form}}
-				
-				<input type="submit" name="Submit">
-			</form>
-
-		</div>
-	</div>
-</div>
   </body>
-
+</html>
 {% endblock %}
